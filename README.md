@@ -3,7 +3,18 @@ This video adblock for Twitch extension will swap Twitch video ads for an ad-fre
 
 # Info
 
-The original author decided to be a bitch by adding his amazon ref-link to his chrome extension. I've removed that part entirely. Feel free to download this repository as .ZIP, extract it at a place where it can stay and just simply load it in Chrome. (Load unpacked extension) => chrome://extensions
+The original author decided to be a bitch by adding his amazon ref-link to his chrome extension. I've removed that part entirely.
+
+# Installation Steps
+
+- [Download the latest .ZIP Archive](https://github.com/cleanlock/VideoAdBlockForTwitch/archive/refs/heads/master.zip)
+- Extract the ZIP Archive
+- Open up Chrome and in your Web Browser URL, enter: `chrome://extensions`
+- Enable the `Developer Mode` toggle, found in the top right of this view (typically) of the extensions page in your browser.
+- Click `Load unpacked Extension`
+- Navigate to the extracted folder from the ZIP Archive and select that folder.
+
+Feel free to download this repository as .ZIP, extract it at a place where it can stay and just simply load it in Chrome. (Load unpacked extension) => chrome://extensions
 
 # Objective of this fork
 
