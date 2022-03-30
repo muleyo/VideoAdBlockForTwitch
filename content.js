@@ -38,10 +38,13 @@ function updateSettings() {
   }
 }
 
-function removeVideoAds() {
-  chrome.runtime.sendMessage({ text: "runRemoveVideoAds" }, () => {
-    setTimeout(updateSettings, 4000);
-  });
+function appendBlockingScript() {
+  var script = document.createElement('script');
+  script.appendChild(document.createTextNode('(' + removeVideoAds + ')();'));
+  (document.body || document.head || document.documentElement).appendChild(script);
+  setTimeout(function() {
+      updateSettings();
+  }, 4000);
 }
 
 if (isFirefox) {
@@ -50,28 +53,58 @@ if (isFirefox) {
     (res) => {
       if (res && res.onOffTTV) {
         if (res.onOffTTV == "true") {
-          removeVideoAds();
+          var s = document.createElement('script');
+          s.src = browser.runtime.getURL('remove_video_ads.js');
+          s.onload = function() {
+            console.log("Blocking ads...");
+          };
+          (document.head || document.documentElement).appendChild(s);
         }
       } else {
-        removeVideoAds();
+        var s = document.createElement('script');
+        s.src = browser.runtime.getURL('remove_video_ads.js');
+        s.onload = function() {
+          console.log("Blocking ads...");
+        };
+        (document.head || document.documentElement).appendChild(s);
       }
     },
     (err) => {
-      removeVideoAds();
+      var s = document.createElement('script');
+      s.src = browser.runtime.getURL('remove_video_ads.js');
+      s.onload = function() {
+        console.log("Blocking ads...");
+      };
+      (document.head || document.documentElement).appendChild(s);
     }
   );
 } else {
   chrome.storage.local.get(["onOffTTV"], function (result) {
     if (chrome.runtime.lastError) {
-      removeVideoAds();
+      var s = document.createElement('script');
+      s.src = chrome.runtime.getURL('remove_video_ads.js');
+      s.onload = function() {
+        console.log("Blocking ads...");
+      };
+      (document.head || document.documentElement).appendChild(s);
       return;
     }
     if (result && result.onOffTTV) {
       if (result.onOffTTV == "true") {
-        removeVideoAds();
+        var s = document.createElement('script');
+        s.src = chrome.runtime.getURL('remove_video_ads.js');
+        s.onload = function() {
+          console.log("Blocking ads...");
+        };
+        (document.head || document.documentElement).appendChild(s);
       }
     } else {
-      removeVideoAds();
+      var s = document.createElement('script');
+      s.src = chrome.runtime.getURL('remove_video_ads.js');
+      s.onload = function() {
+        console.log("Blocking ads...");
+      };
+      (document.head || document.documentElement).appendChild(s);
     }
   });
 }
