@@ -24,8 +24,7 @@
     "declarativeNetRequest",
     "storage",
     "webRequest",
-    "webRequestBlocking",
-    "*://*.amazon.co.uk/*"
+    "webRequestBlocking"
   ],
 
   "declarative_net_request" : {
