@@ -5,6 +5,12 @@ This video adblock for Twitch extension will swap Twitch video ads for an ad-fre
 
 The original author decided to be a bitch by adding his amazon ref-link to his chrome extension. I've removed that part entirely. Feel free to download this repository as .ZIP, extract it at a place where it can stay and just simply load it in Chrome. (Load unpacked extension) => chrome://extensions
 
+# Objective of this fork
+
+- Keeping it donation- and ref-link free and ofcourse ___always open source___
+- Migrating to Manifest v3 (Chrome)
+- Publishing to the Chrome Webstore
+
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
 - [@mikirobles](https://github.com/cleanlock) (thanks for removing the Donation-Stuff etc.)
