@@ -7,4 +7,4 @@ The original author decided to be a bitch by adding his amazon ref-link to his c
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
-- [@mikirobles](https://github.com/cleanlock)
+- [@mikirobles](https://github.com/cleanlock) (thanks for removing the Donation-Stuff etc.)
