@@ -1,29 +1,15 @@
 //Get extension settings.
-//Check if Firefox or not.
-const isFirefox = !chrome.app;
 
 function updateSettings() {
-    if (isFirefox) {
-        var hideBlockingMessage = browser.storage.sync.get('blockingMessageTTV');
-        hideBlockingMessage.then((res) => {
-            if (res.blockingMessageTTV == "true" || res.blockingMessageTTV == "false") {
-                window.postMessage({
-                    type: "SetHideBlockingMessage",
-                    value: res.blockingMessageTTV
-                }, "*");
-            }
-        });
-    } else {
-        chrome.storage.local.get(['blockingMessageTTV'], function(result) {
-            if (result.blockingMessageTTV == "true" || result.blockingMessageTTV == "false") {
-                window.postMessage({
-                    type: "SetHideBlockingMessage",
-                    value: result.blockingMessageTTV
-                }, "*");
-            }
-        });
-    }
-}
+	try {
+		 chrome.storage.local.get(['blockingMessageTTV'], function(result) {
+		 if (result.blockingMessageTTV == "true" || result.blockingMessageTTV == "false") {
+			window.postMessage({
+				type: "SetHideBlockingMessage",
+				value: result.blockingMessageTTV
+			}, "*");
+		}
+	});
 
 function removeVideoAds() {
     //This stops Twitch from pausing the player when in another tab and an ad shows.
@@ -807,20 +793,8 @@ function appendBlockingScript() {
     }, 4000);
 }
 
-if (isFirefox) {
-    var onOff = browser.storage.sync.get('onOffTTV');
-    onOff.then((res) => {
-        if (res && res.onOffTTV) {
-            if (res.onOffTTV == "true") {
-                appendBlockingScript();
-            }
-        } else {
-            appendBlockingScript();
-        }
-    }, err => {
-        appendBlockingScript();
-    });
-} else {
+function chromeStorage() {
+    try {
     chrome.storage.local.get(['onOffTTV'], function(result) {
         if (chrome.runtime.lastError) {
             appendBlockingScript();

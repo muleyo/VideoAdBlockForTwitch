@@ -23,7 +23,6 @@
     "declarativeNetRequest",
     "storage",
     "webRequest",
-    "webRequestBlocking"
   ],
 
   "declarative_net_request" : {
