@@ -1,15 +1,14 @@
 //Get extension settings.
-
 function updateSettings() {
-	try {
-		 chrome.storage.local.get(['blockingMessageTTV'], function(result) {
-		 if (result.blockingMessageTTV == "true" || result.blockingMessageTTV == "false") {
-			window.postMessage({
-				type: "SetHideBlockingMessage",
-				value: result.blockingMessageTTV
-			}, "*");
-		}
-	});
+    chrome.storage.local.get(['blockingMessageTTV'], function(result) {
+        if (result.blockingMessageTTV == "true" || result.blockingMessageTTV == "false") {
+            window.postMessage({
+                type: "SetHideBlockingMessage",
+                value: result.blockingMessageTTV
+            }, "*");
+        }
+    });
+}
 
 function removeVideoAds() {
     //This stops Twitch from pausing the player when in another tab and an ad shows.
@@ -793,19 +792,16 @@ function appendBlockingScript() {
     }, 4000);
 }
 
-function chromeStorage() {
-    try {
-    chrome.storage.local.get(['onOffTTV'], function(result) {
-        if (chrome.runtime.lastError) {
-            appendBlockingScript();
-            return;
-        }
-        if (result && result.onOffTTV) {
-            if (result.onOffTTV == "true") {
-                appendBlockingScript();
-            }
-        } else {
+chrome.storage.local.get(['onOffTTV'], function(result) {
+    if (chrome.runtime.lastError) {
+        appendBlockingScript();
+        return;
+    }
+    if (result && result.onOffTTV) {
+        if (result.onOffTTV == "true") {
             appendBlockingScript();
         }
-    });
-}
+    } else {
+        appendBlockingScript();
+    }
+});
