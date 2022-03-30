@@ -14,8 +14,6 @@ The original author decided to be a bitch by adding his amazon ref-link to his c
 - Click `Load unpacked Extension`
 - Navigate to the extracted folder from the ZIP Archive and select that folder.
 
-Feel free to download this repository as .ZIP, extract it at a place where it can stay and just simply load it in Chrome. (Load unpacked extension) => chrome://extensions
-
 # Objective of this fork
 
 - Keeping it donation- and ref-link free and ofcourse ___always open source___
