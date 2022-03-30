@@ -19,11 +19,8 @@
     "page": "popup/index.html"
   },
 
-  "permissions": [
-    "declarativeNetRequest",
-    "storage",
-    "webRequest"
-  ],
+  "permissions": ["declarativeNetRequest", "storage", "scripting"],
+  "host_permissions": ["https://*.twitch.tv/*"],
 
   "declarative_net_request" : {
     "rule_resources" : [{
