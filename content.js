@@ -1,13 +1,28 @@
 //Get extension settings.
+//Check if Firefox or not.
+const isFirefox = !chrome.app;
+
 function updateSettings() {
-    chrome.storage.local.get(['blockingMessageTTV'], function(result) {
-        if (result.blockingMessageTTV == "true" || result.blockingMessageTTV == "false") {
-            window.postMessage({
-                type: "SetHideBlockingMessage",
-                value: result.blockingMessageTTV
-            }, "*");
-        }
-    });
+    if (isFirefox) {
+        var hideBlockingMessage = browser.storage.sync.get('blockingMessageTTV');
+        hideBlockingMessage.then((res) => {
+            if (res.blockingMessageTTV == "true" || res.blockingMessageTTV == "false") {
+                window.postMessage({
+                    type: "SetHideBlockingMessage",
+                    value: res.blockingMessageTTV
+                }, "*");
+            }
+        });
+    } else {
+        chrome.storage.local.get(['blockingMessageTTV'], function(result) {
+            if (result.blockingMessageTTV == "true" || result.blockingMessageTTV == "false") {
+                window.postMessage({
+                    type: "SetHideBlockingMessage",
+                    value: result.blockingMessageTTV
+                }, "*");
+            }
+        });
+    }
 }
 
 function removeVideoAds() {
@@ -792,16 +807,31 @@ function appendBlockingScript() {
     }, 4000);
 }
 
-chrome.storage.local.get(['onOffTTV'], function(result) {
-    if (chrome.runtime.lastError) {
-        appendBlockingScript();
-        return;
-    }
-    if (result && result.onOffTTV) {
-        if (result.onOffTTV == "true") {
+if (isFirefox) {
+    var onOff = browser.storage.sync.get('onOffTTV');
+    onOff.then((res) => {
+        if (res && res.onOffTTV) {
+            if (res.onOffTTV == "true") {
+                appendBlockingScript();
+            }
+        } else {
             appendBlockingScript();
         }
-    } else {
+    }, err => {
         appendBlockingScript();
-    }
-});
+    });
+} else {
+    chrome.storage.local.get(['onOffTTV'], function(result) {
+        if (chrome.runtime.lastError) {
+            appendBlockingScript();
+            return;
+        }
+        if (result && result.onOffTTV) {
+            if (result.onOffTTV == "true") {
+                appendBlockingScript();
+            }
+        } else {
+            appendBlockingScript();
+        }
+    });
+}
