@@ -24,5 +24,5 @@ The original author decided to be a bitch by adding his amazon ref-link to his c
 - [@saucettv](https://github.com/saucettv) (original Author)
 - [@mikirobles](https://github.com/mikirobles) (thanks for removing the Donation-Stuff etc.)
 - [@pwltr](https://github.com/pwltr) (thanks for adding the GPL-License)
-- [@HatterTheMadd]((https://github.com/hatterthemadd) (thanks for updating the manifest.json)
-- [@kdjmonaghan]((https://github.com/kdjmonaghan) (thanks for adding clearer instructions for less advanced users)
+- [@HatterTheMadd](https://github.com/hatterthemadd) (thanks for updating the manifest.json)
+- [@kdjmonaghan](https://github.com/kdjmonaghan) (thanks for adding clearer instructions for less advanced users)
