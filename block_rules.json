@@ -1,0 +1,122 @@
+[
+{
+  "id" : 1,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "amazon-adsystem",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 2,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "cdn.krxd.net",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 3,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "script.ioam.de",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 4,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "edge.quantserve.com",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 5,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "ddacn6pr5v0tl.cloudfront.net",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 6,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "d2v02itv0y9u9t.cloudfront.net",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 7,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "imrworldwide.com",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 8,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "countess.twitch.tv",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 9,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "scorecardresearch",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 10,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "googletagservices",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 11,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "branch.io",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+},
+{
+  "id" : 12,
+  "priority": 1,
+  "action" : { "type" : "block" },
+  "condition" : {
+    "urlFilter" : "comscore.com",
+    "domains" : ["twitch.tv","player.twitch.tv"],
+    "resourceTypes" : ["script","main_frame","sub_frame","image","object","xmlhttprequest","ping","csp_report","media","websocket","other"]
+  }
+}
+]
