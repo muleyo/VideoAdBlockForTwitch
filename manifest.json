@@ -22,7 +22,7 @@
   "permissions": [
     "declarativeNetRequest",
     "storage",
-    "webRequest",
+    "webRequest"
   ],
 
   "declarative_net_request" : {
