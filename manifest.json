@@ -22,12 +22,14 @@
   "permissions": ["declarativeNetRequest", "storage", "scripting"],
   "host_permissions": ["https://*.twitch.tv/*"],
 
-  "declarative_net_request" : {
-    "rule_resources" : [{
-      "id": "ruleset_1",
-      "enabled": true,
-      "path": "block_rules.json"
-    }]
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_1",
+        "enabled": true,
+        "path": "block_rules.json"
+      }
+    ]
   },
 
   "background": {
@@ -35,10 +37,10 @@
   },
 
   "content_scripts": [
-   {
-    "matches": ["https://*.twitch.tv/*"],
-    "run_at": "document_start",
-    "js": ["content.js"]
-   }
+    {
+      "matches": ["https://*.twitch.tv/*"],
+      "run_at": "document_start",
+      "js": ["content.js"]
+    }
   ]
 }
