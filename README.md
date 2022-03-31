@@ -28,7 +28,7 @@ The original author of this extension is "saucettv". This extension will always 
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
-- [@mikirobles](https://github.com/mikirobles) (thanks for removing the Donation-Stuff etc.)
-- [@pwltr](https://github.com/pwltr) (thanks for adding the GPL-License)
-- [@HatterTheMadd](https://github.com/hatterthemadd) (thanks for updating the manifest.json)
-- [@kdjmonaghan](https://github.com/kdjmonaghan) (thanks for adding clearer instructions for less advanced users)
+- [@mikirobles](https://github.com/mikirobles) (removed Donation/Amazon stuff)
+- [@pwltr](https://github.com/pwltr) (added the GPL-License)
+- [@HatterTheMadd](https://github.com/hatterthemadd) (helped with updating to Manifest v3)
+- [@kdjmonaghan](https://github.com/kdjmonaghan) (added clearer install instructions for less advanced users)
