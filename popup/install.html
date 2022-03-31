@@ -2,18 +2,18 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Video Ad Block for Twitch</title>
+        <title>Twitch Adblock</title>
         <style>
             html,
             body {
                 width: 340px;
-                background-color: #fff;
+                background-color: #2a2a2a;
             }
             .p1 {
                 font-family: Arial, sans-serif;
                 font-size: 14px;
                 font-weight: bold;
-                color: black;
+                color: #fff;
                 text-align: center;
                 padding-top: 0px;
                 padding-right: 30px;
@@ -24,7 +24,7 @@
                 font-family: Arial, sans-serif;
                 font-size: 14px;
                 font-weight: bold;
-                color: black;
+                color: #fff;
                 text-align: left;
                 padding-top: 5px;
                 padding-right: 30px;
@@ -50,7 +50,7 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background-color: #ccc;
+                background-color: #ff5c5c;
                 -webkit-transition: 0.4s;
                 transition: 0.4s;
             }
@@ -61,15 +61,15 @@
                 width: 14px;
                 left: 5px;
                 bottom: 3px;
-                background-color: white;
+                background-color: #fff;
                 -webkit-transition: 0.4s;
                 transition: 0.4s;
             }
             input:checked + .slider {
-                background-color: #772aa0;
+                background-color: #4cac74;
             }
             input:focus + .slider {
-                box-shadow: 0 0 1px #772aa0;
+                box-shadow: 0 0 1px #4cac74;
             }
             input:checked + .slider:before {
                 -webkit-transform: translateX(18px);
@@ -87,25 +87,24 @@
     </head>
     <body>
         <div id="popup-content">
-            <img src="logo.png" alt="Video Ad Block for Twitch" />
-            <p class="p1">YOU MUST DISABLE THE TTV LOL / PURPLE ADBLOCK PROXY EXTENSIONS FOR THIS ONE TO WORK.</p>
-            <p class="p1">Thank you for installing, please check your settings are correct and when ready, refresh the Twitch tabs.</p>
-            <p class="p1">Please note, this extension is not compatible with other Twitch specific ad-blockers or user-scripts.</p>
+            <img src="logo.png" height="100%" width="100%" alt="Twitch Adblock" />
+            <p class="p1">Thank you for installing Twitch Adblock!</p>
+            <p class="p1">In order to provide full functionality, please make sure that you disable any other Adblocker for Twitch.</p>
             <p class="p2">
-                Turn ad-blocker off/on
+                Twitch Adblocker Off / On
                 <label class="switch">
                     <input type="checkbox" name="checkbox1" checked />
                     <span class="slider round"></span>
                 </label>
             </p>
             <p class="p2">
-                Hide "Blocking Ads" message
+                "Blocking Ads" message Off / On
                 <label class="switch">
                     <input type="checkbox" name="checkbox2" />
                     <span class="slider round"></span>
                 </label>
             </p>
-            <p class="p1">You can access these settings at any time by clicking on the extension icon, or by going to the extensions page.</p>
+            <p class="p1">You can access these settings at any time by clicking on the extension icon.</p>
         </div>
         <script src="popupjs.js"></script>
     </body>
