@@ -1,6 +1,5 @@
-
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/32986026/160895906-b1d4b8fa-3251-49cf-9689-ffe843dfdf68.jpg" alt"Banner">
+    <img src="https://user-images.githubusercontent.com/32986026/161113263-7da29b0f-64cd-4759-ab71-eaf20b023d73.png" alt"Banner">
 </p>
 
 # VideoAdBlockForTwitch
