@@ -20,11 +20,11 @@ The original author of this extension is "saucettv". This extension will always 
 - Click `Load unpacked Extension`
 - Navigate to the extracted folder from the ZIP Archive and select that folder.
 
-# Objective of this fork
+# To do
 
-- Keeping it donation- and ref-link free and ofcourse ___always open source___
-- Migrating to Manifest v3 (Chrome)
-- Publishing to the Chrome Webstore
+- ~~Migrating to Manifest v3 (Chrome)~~ ✔
+- Publishing to the Chrome Webstore - 🕐 currently in review
+- Publishing to the Edge Webstore - 🕐 currently in review
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
