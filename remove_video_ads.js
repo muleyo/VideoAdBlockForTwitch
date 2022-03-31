@@ -414,6 +414,7 @@ async function processM3U8(url, textStr, realFetch, playerType) {
                     var streamM3u8Response = await realFetch(streamM3u8Url);
                     if (streamM3u8Response.status == 200) {
                         var m3u8Text = await streamM3u8Response.text();
+                        console.log("Blocking ads...");
                         WasShowingAd = true;
                         if (HideBlockingMessage == false) {
                             postMessage({
@@ -443,6 +444,7 @@ async function processM3U8(url, textStr, realFetch, playerType) {
         }
     } else {
         if (WasShowingAd) {
+            console.log("Done blocking ads, changing back to original quality");
             WasShowingAd = false;
             //Here we put player back to original quality and remove the blocking message.
             postMessage({

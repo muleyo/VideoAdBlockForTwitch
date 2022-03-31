@@ -1,110 +1,71 @@
-//Get extension settings.
-//Check if Firefox or not.
-const isChromium = typeof chrome !== "undefined";
-const isFirefox = typeof browser !== "undefined";
+// Browser helpers
+const isChromium = typeof window.chrome !== "undefined";
+const isFirefox = typeof window.browser !== "undefined";
+const browser = isFirefox ? window.browser : window.chrome;
 
+// Get extension settings
 function updateSettings() {
+  const setHideBlockingMessage = ({ blockingMessageTTV }) => {
+    if (blockingMessageTTV === "true" || blockingMessageTTV === "false") {
+      postMessage(
+        {
+          type: "SetHideBlockingMessage",
+          value: blockingMessageTTV,
+        },
+        "*"
+      );
+    }
+  };
+
   if (isFirefox) {
-    var hideBlockingMessage = browser.storage.sync.get("blockingMessageTTV");
-    hideBlockingMessage.then((res) => {
-      if (
-        res.blockingMessageTTV == "true" ||
-        res.blockingMessageTTV == "false"
-      ) {
-        window.postMessage(
-          {
-            type: "SetHideBlockingMessage",
-            value: res.blockingMessageTTV,
-          },
-          "*"
-        );
-      }
-    });
+    browser.storage.local
+      .get("blockingMessageTTV")
+      .then(setHideBlockingMessage);
   } else {
-    chrome.storage.local.get(["blockingMessageTTV"], function (result) {
-      if (
-        result.blockingMessageTTV == "true" ||
-        result.blockingMessageTTV == "false"
-      ) {
-        window.postMessage(
-          {
-            type: "SetHideBlockingMessage",
-            value: result.blockingMessageTTV,
-          },
-          "*"
-        );
-      }
-    });
+    browser.storage.local.get(["blockingMessageTTV"], (result) =>
+      setHideBlockingMessage(result)
+    );
   }
 }
 
 function appendBlockingScript() {
-  var script = document.createElement('script');
-  script.appendChild(document.createTextNode('(' + removeVideoAds + ')();'));
-  (document.body || document.head || document.documentElement).appendChild(script);
-  setTimeout(function() {
-      updateSettings();
-  }, 4000);
+  const script = document.createElement("script");
+  script.src = browser.runtime.getURL("remove_video_ads.js");
+  script.onload = () => setTimeout(updateSettings, 4000);
+  (document.body || document.head || document.documentElement).appendChild(
+    script
+  );
 }
 
 if (isFirefox) {
-  var onOff = browser.storage.sync.get("onOffTTV");
-  onOff.then(
-    (res) => {
-      if (res && res.onOffTTV) {
-        if (res.onOffTTV == "true") {
-          var s = document.createElement('script');
-          s.src = browser.runtime.getURL('remove_video_ads.js');
-          s.onload = function() {
-            console.log("Blocking ads...");
-          };
-          (document.head || document.documentElement).appendChild(s);
+  browser.storage.local.get("onOffTTV").then(
+    (result) => {
+      if (result?.onOffTTV) {
+        if (result.onOffTTV === "true") {
+          appendBlockingScript();
         }
       } else {
-        var s = document.createElement('script');
-        s.src = browser.runtime.getURL('remove_video_ads.js');
-        s.onload = function() {
-          console.log("Blocking ads...");
-        };
-        (document.head || document.documentElement).appendChild(s);
+        appendBlockingScript();
       }
     },
-    (err) => {
-      var s = document.createElement('script');
-      s.src = browser.runtime.getURL('remove_video_ads.js');
-      s.onload = function() {
-        console.log("Blocking ads...");
-      };
-      (document.head || document.documentElement).appendChild(s);
+    (error) => {
+      console.error(error);
+      appendBlockingScript();
     }
   );
 } else {
-  chrome.storage.local.get(["onOffTTV"], function (result) {
-    if (chrome.runtime.lastError) {
-      var s = document.createElement('script');
-      s.src = chrome.runtime.getURL('remove_video_ads.js');
-      s.onload = function() {
-        console.log("Blocking ads...");
-      };
-      (document.head || document.documentElement).appendChild(s);
+  browser.storage.local.get(["onOffTTV"], function (result) {
+    if (browser.runtime.lastError) {
+      console.error(browser.runtime.lastError);
+      appendBlockingScript();
       return;
     }
-    if (result && result.onOffTTV) {
-      if (result.onOffTTV == "true") {
-        var s = document.createElement('script');
-        s.src = chrome.runtime.getURL('remove_video_ads.js');
-        s.onload = function() {
-          console.log("Blocking ads...");
-        };
-        (document.head || document.documentElement).appendChild(s);
+    if (result?.onOffTTV) {
+      if (result.onOffTTV === "true") {
+        appendBlockingScript();
       }
     } else {
-      var s = document.createElement('script');
-      s.src = chrome.runtime.getURL('remove_video_ads.js');
-      s.onload = function() {
-        console.log("Blocking ads...");
-      };
-      (document.head || document.documentElement).appendChild(s);
+      appendBlockingScript();
     }
   });
 }
