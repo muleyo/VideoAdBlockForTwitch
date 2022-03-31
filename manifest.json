@@ -2,7 +2,7 @@
   "description": "Swaps video ads for an ad-free stream.",
   "manifest_version": 3,
   "name": "Video Ad-Block, for Twitch",
-  "version": "5.3.5",
+  "version": "5.3.6",
   "icons": {
     "48": "icons/ttv-48.png",
     "96": "icons/ttv-96.png"
