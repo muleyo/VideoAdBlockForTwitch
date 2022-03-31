@@ -2,8 +2,14 @@
     <img src="https://user-images.githubusercontent.com/32986026/161113263-7da29b0f-64cd-4759-ab71-eaf20b023d73.png" alt"Banner">
 </p>
 
-# VideoAdBlockForTwitch
-This video adblock for Twitch extension will swap Twitch video ads for an ad-free version of the stream at 480p and then automatically switch back to the original video quality once the ad is finished. This is all done locally, no proxies, no VPN's and no third party websites. The extension does not collect nor share any personal information and is opensource, link is below. Works best when used with UBlock Origin, although this extension does also block some ad tracking URL's.
+# Twitch Adblock
+Twitch Adblock blocks ads on Twitch by switching to an ad-free version of the stream at 480p during the ad-time and automatically switches back to the original video quality after the ad-time is over. This is 100% done locally, no proxies/VPNs or 3rd party scripts/websites are being used. This extension does not collect/share any of your personal information and the code is public. 
+
+It is recommended to use this extension along with UBlock Origin.
+
+Sourcecode: https://github.com/cleanlock/VideoAdBlockForTwitch
+
+The original author of this extension is "saucettv". This extension will always stay donation- and refferal-link free.
 
 # Info
 
