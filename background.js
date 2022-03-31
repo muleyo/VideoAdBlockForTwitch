@@ -14,13 +14,3 @@ function handleInstalled(details) {
 }
 
 chrome.runtime.onInstalled.addListener(handleInstalled);
-
-/*chrome.runtime.onMessage.addListener((msg, sender) => {
-  if (msg.text == "runRemoveVideoAds") {
-    chrome.scripting.executeScript({
-      target: { tabId: sender.tab.id },
-      files: ["remove_video_ads.js"],
-    });
-  }
-});
-*/

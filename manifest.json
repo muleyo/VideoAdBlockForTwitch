@@ -15,27 +15,22 @@
   "options_ui": {
     "page": "popup/index.html"
   },
-  "permissions": ["declarativeNetRequest", "storage", "scripting"],
-  "host_permissions": ["https://*.twitch.tv/*"],
+  "permissions": ["declarativeNetRequest", "storage"],
   "declarative_net_request": {
-    "rule_resources": [
-      {
-        "id": "ruleset_1",
-        "enabled": true,
-        "path": "block_rules.json"
-      }
-    ]
+    "rule_resources": [{
+      "id": "ruleset_1",
+      "enabled": true,
+      "path": "block_rules.json"
+    }]
   },
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["https://*.twitch.tv/*"],
-      "run_at": "document_start",
-      "js": ["content.js"]
-    }
-  ],
+  "content_scripts": [{
+    "matches": ["https://*.twitch.tv/*"],
+    "run_at": "document_start",
+    "js": ["content.js"]
+  }],
   "web_accessible_resources": [{
     "resources": ["remove_video_ads.js"],
     "matches": ["https://*.twitch.tv/*"]
