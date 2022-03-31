@@ -11,10 +11,6 @@ Sourcecode: https://github.com/cleanlock/VideoAdBlockForTwitch
 
 The original author of this extension is "saucettv". This extension will always stay donation- and refferal-link free.
 
-# Info
-
-The original author decided to be a bitch by adding his amazon ref-link to his chrome extension. I've removed that part entirely.
-
 # Installation Steps
 
 - [Download the latest .ZIP Archive](https://github.com/cleanlock/VideoAdBlockForTwitch/archive/refs/heads/master.zip)
