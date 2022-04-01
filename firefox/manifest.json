@@ -2,7 +2,7 @@
   "description": "Blocks Ads on Twitch.tv.",
   "manifest_version": 2,
   "name": "Twitch Adblock",
-  "version": "5.3.7",
+  "version": "5.3.8",
   "icons": {
     "48": "icons/twitch-adblock-48x48.png",
     "96": "icons/twitch-adblock-96x96.png"
@@ -26,7 +26,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-    "id": "{3385c2d8-dcfd-4f92-adb7-5d8429dee164}",
+    "id": "{c961a5ba-dc89-44e9-9e52-93318dd95378}",
     "strict_min_version": "57.0"
     }
   },
