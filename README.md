@@ -25,6 +25,7 @@ The original author of this extension is "saucettv". This extension will always 
 - ~~Migrating to Manifest v3 (Chrome)~~ ✔
 - Publishing to the Chrome Webstore - 🕐 currently in review
 - Publishing to the Edge Webstore - 🕐 currently in review
+- Publishing to the Firefox Webstore - 🕐 currently in review
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
