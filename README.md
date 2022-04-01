@@ -20,6 +20,9 @@ The original author of this extension is "saucettv". This extension will always 
 - Click `Load unpacked Extension`
 - Navigate into the extracted folder from the ZIP Archive and select the folder `chrome`.
 
+# Discord
+- https://discord.gg/PSgWqf3v8V
+
 # To do
 
 - ~~Migrating to Manifest v3 (Chrome)~~ ✔
