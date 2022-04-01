@@ -1,0 +1,41 @@
+{
+  "description": "Blocks Ads on Twitch.tv.",
+  "manifest_version": 2,
+  "name": "Twitch Adblock",
+  "version": "5.3.7",
+  "icons": {
+    "48": "icons/twitch-adblock-48x48.png",
+    "96": "icons/twitch-adblock-96x96.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/twitch-adblock-32x32.png",
+    "default_title": "Twitch Adblock",
+    "default_popup": "popup/index.html"
+  },
+  "options_ui": {
+    "page": "popup/index.html",
+    "browser_style": false,
+    "chrome_style": false
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "https://*.twitch.tv/*",
+    "https://*.amazon-adsystem.com/*","https://cdn.krxd.net/*","https://script.ioam.de/iam.js","https://edge.quantserve.com/quant.js","https://ddacn6pr5v0tl.cloudfront.net/custom-moat-video-native.min.js","https://d2v02itv0y9u9t.cloudfront.net/dist/1.0.5/v6s.js","https://*.imrworldwide.com/*","https://countess.twitch.tv/*","https://*.scorecardresearch.com/*","https://www.googletagservices.com/tag/js/gpt.js","*://*.branch.io/*","*://comscore.com/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+    "id": "{3385c2d8-dcfd-4f92-adb7-5d8429dee164}",
+    "strict_min_version": "57.0"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [{
+    "matches": ["https://*.twitch.tv/*"],
+    "run_at": "document_start",
+    "js": ["content.js"]
+   }]
+}

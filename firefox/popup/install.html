@@ -1,0 +1,116 @@
+<!-- This HTML will be shown on first installation -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Twitch Adblock</title>
+        <style>
+            html,
+            body {
+                width: 340px;
+                background-color: #2a2a2a;
+            }
+            .p1 {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: bold;
+                color: #fff;
+                text-align: center;
+                padding-top: 0px;
+                padding-right: 30px;
+                padding-bottom: 0px;
+                padding-left: 30px;
+            }
+            .p2 {
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                font-weight: bold;
+                color: #fff;
+                text-align: left;
+                padding-top: 5px;
+                padding-right: 30px;
+                padding-bottom: 5px;
+                padding-left: 30px;
+            }
+            .switch {
+                float: right;
+                position: relative;
+                display: inline-block;
+                width: 40px;
+                height: 20px;
+            }
+            .switch input {
+                opacity: 0;
+                width: 0;
+                height: 0;
+            }
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: #ff5c5c;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+            }
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 14px;
+                width: 14px;
+                left: 5px;
+                bottom: 3px;
+                background-color: #fff;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+            }
+            input:checked + .slider {
+                background-color: #4cac74;
+            }
+            input:focus + .slider {
+                box-shadow: 0 0 1px #4cac74;
+            }
+            input:checked + .slider:before {
+                -webkit-transform: translateX(18px);
+                -ms-transform: translateX(18px);
+                transform: translateX(18px);
+            }
+            .slider.round {
+                border-radius: 40px;
+            }
+
+            .slider.round:before {
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="popup-content">
+            <img src="logo.png" height="100%" width="100%" alt="Twitch Adblock" />
+            <p class="p1">Thank you for installing Twitch Adblock!</p>
+            <p class="p1">In order to provide full functionality, please make sure that you disable any other Adblocker for Twitch.</p>
+            <p class="p2">
+                Twitch Adblocker Off / On
+                <label class="switch">
+                    <input type="checkbox" name="checkbox1" checked />
+                    <span class="slider round"></span>
+                </label>
+            </p>
+            <p class="p2">
+                "Blocking Ads" message Off / On
+                <label class="switch">
+                    <input type="checkbox" name="checkbox2" />
+                    <span class="slider round"></span>
+                </label>
+            </p>
+            <p class="p1">You can access these settings at any time by clicking on the extension icon.</p>
+            <p class="p2" style="text-align: center;">
+                <a href="https://github.com/cleanlock/VideoAdBlockForTwitch" target="_blank"><img src="github.png" alt="Github" height="42px" width="42px"></a>
+                <a href="https://discord.gg/PSgWqf3v8V" target="_blank"><img src="discord.png" alt="Discord" height="42px" width="42px" style="margin-left: 10px;"></a>
+            </p>
+        </div>
+        <script src="popupjs.js"></script>
+    </body>
+</html>
