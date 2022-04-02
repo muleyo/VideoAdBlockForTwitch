@@ -25,7 +25,7 @@ The original author of this extension is "saucettv". This extension will always 
 
 # Available Browsers
 - [Firefox](https://addons.mozilla.org/en-US/firefox/addon/twitch-adblock/)
-- Chrome (🕐 currently in review)
+- [Chrome](https://chrome.google.com/webstore/detail/twitch-adblock/ljhnljhabgjcihjoihakgdiicdjncpkd?hl=en&authuser=0)
 - Edge (🕐 currently in review)
 
 # Credits
