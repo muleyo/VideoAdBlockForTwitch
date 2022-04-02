@@ -11,8 +11,13 @@ Sourcecode: https://github.com/cleanlock/VideoAdBlockForTwitch
 
 The original author of this extension is "saucettv". This extension will always stay donation- and referral-link free.
 
-# Installation Steps
+# Available Browsers
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/twitch-adblock/)
+- [Chrome](https://chrome.google.com/webstore/detail/twitch-adblock/ljhnljhabgjcihjoihakgdiicdjncpkd?hl=en&authuser=0)
+- Edge (🕐 currently in review)
 
+# Manual Installation Steps for Chrome
+**NOTE: This Is Not Recommended, You Will Get No Auto-Updates**
 - [Download the latest .ZIP Archive](https://github.com/cleanlock/VideoAdBlockForTwitch/archive/refs/heads/master.zip)
 - Extract the ZIP Archive
 - Open up Chrome and in your Web Browser URL, enter: `chrome://extensions`
@@ -22,11 +27,6 @@ The original author of this extension is "saucettv". This extension will always 
 
 # Discord
 - https://discord.gg/PSgWqf3v8V
-
-# Available Browsers
-- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/twitch-adblock/)
-- [Chrome](https://chrome.google.com/webstore/detail/twitch-adblock/ljhnljhabgjcihjoihakgdiicdjncpkd?hl=en&authuser=0)
-- Edge (🕐 currently in review)
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
