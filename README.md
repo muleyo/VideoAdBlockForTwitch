@@ -23,12 +23,10 @@ The original author of this extension is "saucettv". This extension will always 
 # Discord
 - https://discord.gg/PSgWqf3v8V
 
-# To do
-
-- ~~Migrating to Manifest v3 (Chrome)~~ ✔
-- Publishing to the Chrome Webstore - 🕐 currently in review
-- Publishing to the Edge Webstore - 🕐 currently in review
-- Publishing to the Firefox Webstore - 🕐 currently in review
+# Available Browsers
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/twitch-adblock/)
+- Chrome (🕐 currently in review)
+- Edge (🕐 currently in review)
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
