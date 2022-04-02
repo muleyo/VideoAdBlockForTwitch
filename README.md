@@ -17,7 +17,7 @@ The original author of this extension is "saucettv". This extension will always 
 - Edge (🕐 currently in review)
 
 # Manual Installation Steps for Chrome
-**NOTE: This Is Not Recommended, You Will Get No Auto-Updates**
+**NOTE: This is NOT RECOMMENDED, you WILL NOT get auto-updates**
 - [Download the latest .ZIP Archive](https://github.com/cleanlock/VideoAdBlockForTwitch/archive/refs/heads/master.zip)
 - Extract the ZIP Archive
 - Open up Chrome and in your Web Browser URL, enter: `chrome://extensions`
