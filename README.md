@@ -41,7 +41,7 @@ The original author of this extension is "saucettv". This extension will always 
 - v5.3.9
     - `fixed "Show/Hide 'Blocking Ads'-message logic`
 - v5.4.0
-    - `applied fix for the 360p quality issue` (thanks @pixeltris)
+    - `applied fix for the 360p quality issue` (thanks [@pixeltris](https://github.com/pixeltris))
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
