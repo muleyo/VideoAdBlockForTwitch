@@ -28,6 +28,21 @@ The original author of this extension is "saucettv". This extension will always 
 # Discord
 - https://discord.gg/PSgWqf3v8V
 
+# Changelog
+- v5.3.5
+    - `removed the URL grabber, Amazon referral link and Donation-Stuff from the original coder`
+- v5.3.6
+    - `updated manifest.json`
+- v5.3.7
+    - `updated to Manifest v3`
+- v5.3.8
+    - `updated extension menu`
+    - `added GitHub & Discord link to the extension menu`
+- v5.3.9
+    - `fixed "Show/Hide 'Blocking Ads'-message logic`
+- v5.4.0
+    - `applied fix for the 360p quality issue` (thanks @pixeltris)
+
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
 - [@mikirobles](https://github.com/mikirobles) (removed Donation/Amazon stuff)
