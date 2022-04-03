@@ -119,9 +119,9 @@ window.Worker = class Worker extends oldWorker {
                     GQLDeviceID = e.data.value;
                 } else if (e.data.key == 'SetHideBlockingMessage') {
                     if (e.data.value == "true") {
-                    HideBlockingMessage = true;
-                    } else if (e.data.value == "false") {
                     HideBlockingMessage = false;
+                    } else if (e.data.value == "false") {
+                    HideBlockingMessage = true;
                     }
                 }
             });
