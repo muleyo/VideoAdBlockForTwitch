@@ -214,10 +214,10 @@ window.Worker = class Worker extends oldWorker {
                                                 qualityToSelect = 0;
                                             }
                                         }
+                                        var currentQualityLS = window.localStorage.getItem('video-quality');
+                                        
                                         lowQuality[qualityToSelect].click();
-
-                                        var originalQuality = JSON.parse(OriginalVideoPlayerQuality);
-                                        window.localStorage.setItem('video-quality', '{"default":"'+originalQuality.group+'"}');
+                                        window.localStorage.setItem('video-quality', currentQualityLS);
 
                                         if (e.data.value != null) {
                                             OriginalVideoPlayerQuality = null;
