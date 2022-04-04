@@ -40,7 +40,7 @@ The original author of this extension is "saucettv". This extension will always 
     - `added GitHub & Discord link to the extension menu`
 - v5.3.9
     - `fixed "Show/Hide 'Blocking Ads'-message logic`
-- v5.4.0
+- v5.4.0 (Chrome) / v5.4.1 (Firefox)
     - `applied fix for the 360p quality issue` (thanks [@pixeltris](https://github.com/pixeltris))
 
 # Credits
