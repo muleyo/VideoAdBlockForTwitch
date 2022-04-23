@@ -51,3 +51,10 @@ function restoreOptions() {
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
+
+// internacionalization (https://stackoverflow.com/questions/25467009/internationalization-of-html-pages-for-my-google-chrome-extension)
+
+document.querySelectorAll('[data-i18n]').forEach(elem => {
+    elem.innerText = chrome.i18n.getMessage(elem.dataset.i18n)
+})
+  
