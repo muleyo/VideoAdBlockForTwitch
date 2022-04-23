@@ -6,7 +6,7 @@
     "toggleAdblocker": {
         "message": "Bloquear anuncios Off / On"
     },
-    "toggleBlokingAds": {
+    "toggleBlockingAds": {
         "message": "Mensaje de \"Bloqueando anuncios\" Off / On",
         "description": "Alterna el mensaje de 'Bloqueando anuncios...'"
     },
