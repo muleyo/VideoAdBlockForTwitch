@@ -10,7 +10,7 @@
         "message": "\"Blocking Ads\" message Off / On",
         "description": "Toggle the 'blocking ads...' banner"
     },
-    "realodTabsWarning": {
+    "reloadTabsWarning": {
         "message": "Whenever you change a setting, you have to reload the Twitch tab(s)."
     },
     "popupReminder": {
