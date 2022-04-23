@@ -6,7 +6,7 @@
     "toggleAdblocker": {
         "message": "Twitch Adblocker Off / On"
     },
-    "toggleBlokingAds": {
+    "toggleBlockingAds": {
         "message": "\"Blocking Ads\" message Off / On",
         "description": "Toggle the 'blocking ads...' banner"
     },
