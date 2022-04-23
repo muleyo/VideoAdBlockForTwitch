@@ -10,7 +10,7 @@
         "message": "Mensaje de \"Bloqueando anuncios\" Off / On",
         "description": "Alterna el mensaje de 'Bloqueando anuncios...'"
     },
-    "realodTabsWarning": {
+    "reloadTabsWarning": {
         "message": "Cada vez que cambies alguna configuracion, debes volver a recargar la(s) pestaña(s) de Twitch."
     },
     "popupReminder": {
