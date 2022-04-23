@@ -14,7 +14,7 @@
         "message": "Cada vez que cambies alguna configuracion, debes volver a recargar la(s) pestaña(s) de Twitch."
     },
     "popupReminder": {
-        "message": "Puedes acceder a estas configuraciónes en cualquier momento haciendo clic el icono de la extensión"
+        "message": "Puedes acceder a estas configuraciónes en cualquier momento haciendo clic en el icono de la extensión"
     },
     "installThanks": {
         "message": "¡Gracias por instalar Twitch Adblock!"
