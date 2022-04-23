@@ -11,7 +11,7 @@
         "description": "Activa/desactiva el mensaje de 'Bloqueando anuncios...'"
     },
     "reloadTabsWarning": {
-        "message": "Cada vez que cambies alguna configuracion, debes volver a recargar la(s) pestaña(s) de Twitch."
+        "message": "Cada vez que cambies alguna configuracion, deberás recargar la(s) pestaña(s) de Twitch."
     },
     "popupReminder": {
         "message": "Puedes acceder a estas configuraciónes en cualquier momento haciendo clic en el icono de la extensión"
