@@ -90,7 +90,7 @@ window.Worker = class Worker extends oldWorker {
             super(twitchBlobUrl);
             return;
         }
-        var jsURL = getWasmWorkerUrl(twitchBlobUrl);
+        var jsURL = twitchBlobUrl;
         if (typeof jsURL !== 'string') {
             super(twitchBlobUrl);
             return;
@@ -215,7 +215,7 @@ window.Worker = class Worker extends oldWorker {
                                             }
                                         }
                                         var currentQualityLS = window.localStorage.getItem('video-quality');
-                                        
+
                                         lowQuality[qualityToSelect].click();
                                         window.localStorage.setItem('video-quality', currentQualityLS);
 
@@ -256,13 +256,6 @@ window.Worker = class Worker extends oldWorker {
         }
     }
 };
-
-function getWasmWorkerUrl(twitchBlobUrl) {
-    var req = new XMLHttpRequest();
-    req.open('GET', twitchBlobUrl, false);
-    req.send();
-    return req.responseText.split("'")[1];
-}
 
 function hookWorkerFetch() {
     var realFetch = fetch;
