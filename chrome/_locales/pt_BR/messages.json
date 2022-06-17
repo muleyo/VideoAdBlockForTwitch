@@ -1,0 +1,28 @@
+{
+    "extDescription": {
+      "message": "Bloquear anúncios nas transmissões da Twitch.tv.",
+      "description": "A descrição da extensão."
+    },
+    "toggleAdblocker": {
+        "message": "Bloquear anúncios"
+    },
+    "toggleBlockingAds": {
+        "message": "Aviso de \"Bloqueando anúncios\"",
+        "description": "Ativar ou desativar a mensagem 'Bloqueando anúncios...'"
+    },
+    "reloadTabsWarning": {
+        "message": "Sempre que você alterar uma configuração da extensão, você vai precisar recarregar a(s) guia(s) da Twitch."
+    },
+    "popupReminder": {
+        "message": "Você pode acessar as configurações a qualquer momento apenas clicando no ícone da extensão"
+    },
+    "installThanks": {
+        "message": "Obrigado por usar o Twitch Adblock!"
+    },
+    "disableOtherAdblockers": {
+        "message": "Para a extensão funcionar corretamente, desative outros bloqueadores de anúncio para a Twitch."
+    },
+    "blockingAds":{
+        "message": "Bloqueando anúncios..."
+    }
+}
