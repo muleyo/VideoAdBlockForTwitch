@@ -101,6 +101,7 @@ function removeVideoAds() {
         scope.StreamInfos = [];
         scope.StreamInfosByUrl = [];
         scope.MainUrlByUrl = [];
+        scope.EncodingCacheTimeout = 60000;
     }
 
     declareOptions(window);
@@ -404,7 +405,8 @@ function removeVideoAds() {
     }
 
     async function getStreamForResolution(streamInfo, targetResolution, encodingsM3u8, fallbackStreamStr, playerType, realFetch) {
-        if (streamInfo.EncodingsM3U8Cache[playerType].Resolution != targetResolution) {
+        if (streamInfo.EncodingsM3U8Cache[playerType].Resolution != targetResolution ||
+            streamInfo.EncodingsM3U8Cache[playerType].RequestTime < Date.now() - EncodingCacheTimeout) {
             console.log(`Blocking ads (type:${playerType}, resolution:${targetResolution})`);
         }
         streamInfo.EncodingsM3U8Cache[playerType].RequestTime = Date.now();
@@ -496,10 +498,10 @@ function removeVideoAds() {
                 }
             }
             
-            // Keep the m3u8 around for 60 seconds before requesting a new one
+            // Keep the m3u8 around for a little while (once per ad) before requesting a new one
             var encodingsM3U8Cache = streamInfo.EncodingsM3U8Cache[playerType];
             if (encodingsM3U8Cache) {
-                if (encodingsM3U8Cache.Value && encodingsM3U8Cache.RequestTime >= Date.now() - 60000) {
+                if (encodingsM3U8Cache.Value && encodingsM3U8Cache.RequestTime >= Date.now() - EncodingCacheTimeout) {
                     try {
                         var result = getStreamForResolution(streamInfo, currentResolution, encodingsM3U8Cache.Value, null, playerType, realFetch);
                         if (result) {
