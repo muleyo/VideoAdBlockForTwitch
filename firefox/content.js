@@ -404,9 +404,10 @@ function removeVideoAds() {
     }
 
     async function getStreamForResolution(streamInfo, targetResolution, encodingsM3u8, fallbackStreamStr, playerType, realFetch) {
-        if (streamInfo.EncodingsM3U8Cache[playerType].Value == null || streamInfo.EncodingsM3U8Cache[playerType].Resolution != targetResolution) {
+        if (streamInfo.EncodingsM3U8Cache[playerType].Resolution != targetResolution) {
             console.log(`Blocking ads (type:${playerType}, resolution:${targetResolution})`);
         }
+        streamInfo.EncodingsM3U8Cache[playerType].RequestTime = Date.now();
         streamInfo.EncodingsM3U8Cache[playerType].Value = encodingsM3u8;
         streamInfo.EncodingsM3U8Cache[playerType].Resolution = targetResolution;
         var streamM3u8Url = getStreamUrlForResolution(targetResolution, encodingsM3u8);
@@ -430,8 +431,13 @@ function removeVideoAds() {
                 });
             }
 
+            if (!m3u8Text || m3u8Text.includes(AdSignifier)) {
+                streamInfo.EncodingsM3U8Cache[playerType].Value = null;
+            }
+
             return m3u8Text;
         } else {
+            streamInfo.EncodingsM3U8Cache[playerType].Value = null;
             return fallbackStreamStr;
         }
     }
@@ -470,10 +476,14 @@ function removeVideoAds() {
 
         if (haveAdTags) {
 
+            var isMidroll = textStr.includes('"MIDROLL"') || textStr.includes('"midroll"');
+        
             //Reduces ad frequency. TODO: Reduce the number of requests. This is really spamming Twitch with requests.
-            try {
-                tryNotifyTwitch(textStr);
-            } catch (err) {}
+            if (!isMidroll) {
+                try {
+                    tryNotifyTwitch(textStr);
+                } catch (err) {}
+            }
 
             var currentResolution = null;
             if (streamInfo && streamInfo.Urls) {
@@ -487,7 +497,6 @@ function removeVideoAds() {
             }
             
             // Keep the m3u8 around for 60 seconds before requesting a new one
-            // TODO: Maybe only do this for the proxy method?
             var encodingsM3U8Cache = streamInfo.EncodingsM3U8Cache[playerType];
             if (encodingsM3U8Cache) {
                 if (encodingsM3U8Cache.Value && encodingsM3U8Cache.RequestTime >= Date.now() - 60000) {
@@ -496,14 +505,17 @@ function removeVideoAds() {
                         if (result) {
                             return result;
                         }
-                    } catch (err) {}
+                    } catch (err) {
+                        encodingsM3U8Cache.Value = null;
+                    }
                 }
+            } else {
+                streamInfo.EncodingsM3U8Cache[playerType] = {
+                    RequestTime: Date.now(),
+                    Value: null,
+                    Resolution: null
+                };
             }
-            streamInfo.EncodingsM3U8Cache[playerType] = {
-                RequestTime: Date.now(),
-                Value: null,
-                Resolution: null
-            };
             
             if (playerType === 'proxy') {
                 try {
