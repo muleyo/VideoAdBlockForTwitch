@@ -100,7 +100,6 @@ window.Worker = class Worker extends oldWorker {
             return;
         }
         var newBlobStr = `
-            ${shouldForceChangeQuality.toString()}
             ${getStreamUrlForResolution.toString()}
             ${getStreamForResolution.toString()}
             ${stripUnusedParams.toString()}
@@ -154,6 +153,9 @@ window.Worker = class Worker extends oldWorker {
             } else if (e.data.key == 'ForceChangeQuality') {
                 //This is used to fix the bug where the video would freeze.
                 try {
+                    if (navigator.userAgent.toLowerCase().indexOf('firefox') == -1) {
+                        return;
+                    }
                     var autoQuality = doTwitchPlayerTask(false, false, false, true, false);
                     var currentQuality = doTwitchPlayerTask(false, true, false, false, false);
 
@@ -353,10 +355,6 @@ function hookWorkerFetch() {
     };
 }
 
-function shouldForceChangeQuality() {
-    return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
-}
-
 function getStreamUrlForResolution(targetResolution, encodingsM3u8) {
     var encodingsLines = encodingsM3u8.replace('\r', '').split('\n');
     var firstUrl = null;
@@ -399,11 +397,9 @@ async function getStreamForResolution(streamInfo, targetResolution, encodingsM3u
             });
         }
 
-        if (shouldForceChangeQuality) {
-            postMessage({
-                key: 'ForceChangeQuality'
-            });
-        }
+        postMessage({
+            key: 'ForceChangeQuality'
+        });
 
         if (!m3u8Text || m3u8Text.includes(AdSignifier)) {
             streamInfo.EncodingsM3U8Cache[playerType].Value = null;
@@ -526,12 +522,10 @@ async function processM3U8(url, textStr, realFetch, playerType) {
             console.log("Done blocking ads, changing back to original quality");
             WasShowingAd = false;
             //Here we put player back to original quality and remove the blocking message.
-            if (shouldForceChangeQuality) {
-                postMessage({
-                    key: 'ForceChangeQuality',
-                    value: 'original'
-                });
-            }
+            postMessage({
+                key: 'ForceChangeQuality',
+                value: 'original'
+            });
             postMessage({
                 key: 'PauseResumePlayer'
             });
