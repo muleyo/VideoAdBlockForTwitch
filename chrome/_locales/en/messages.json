@@ -1,0 +1,28 @@
+{
+    "extDescription": {
+      "message": "Blocks Ads on Twitch.tv.",
+      "description": "The extension short description."
+    },
+    "toggleAdblocker": {
+        "message": "Twitch Adblocker Off / On"
+    },
+    "toggleBlockingAds": {
+        "message": "\"Blocking Ads\" message Off / On",
+        "description": "Toggle the 'blocking ads...' banner"
+    },
+    "reloadTabsWarning": {
+        "message": "Whenever you change a setting, you have to reload the Twitch tab(s)."
+    },
+    "popupReminder": {
+        "message": "You can access these settings at any time by clicking on the extension icon"
+    },
+    "installThanks": {
+        "message": "Thank you for installing Twitch Adblock!"
+    },
+    "disableOtherAdblockers": {
+        "message": "In order to provide full functionality, please make sure that you disable any other Adblocker for Twitch."
+    },
+    "blockingAds":{
+        "message": "Blocking ads..."
+    }
+}

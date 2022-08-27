@@ -141,7 +141,7 @@ window.Worker = class Worker extends oldWorker {
                 if (adBlockDiv == null) {
                     adBlockDiv = getAdBlockDiv();
                 }
-                adBlockDiv.P.textContent = 'Blocking ads...';
+                adBlockDiv.P.textContent = chrome.i18n.getMessage("blockingAds");
                 adBlockDiv.style.display = 'block';
             } else if (e.data.key == 'HideAdBlockBanner') {
                 if (adBlockDiv == null) {

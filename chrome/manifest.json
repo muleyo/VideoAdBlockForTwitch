@@ -1,5 +1,5 @@
 {
-  "description": "Blocks Ads on Twitch.tv.",
+  "description": "__MSG_extDescription__",
   "manifest_version": 3,
   "name": "Twitch Adblock",
   "version": "5.4.0",
@@ -34,5 +34,6 @@
   "web_accessible_resources": [{
     "resources": ["remove_video_ads.js"],
     "matches": ["https://*.twitch.tv/*"]
-  }]
+  }],
+  "default_locale": "en"
 }
