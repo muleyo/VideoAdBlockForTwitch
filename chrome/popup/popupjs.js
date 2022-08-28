@@ -1,51 +1,56 @@
-"use strict";
+'use strict';
 
-var onOff = document.querySelector("input[name=checkbox1]");
-var blockingMessage = document.querySelector("input[name=checkbox2]");
+const isChromium = typeof window.chrome !== 'undefined';
+const isFirefox = typeof window.browser !== 'undefined';
+const browser = isFirefox ? window.browser : window.chrome;
 
-onOff.addEventListener('change', function() {
-    saveOptions();
-});
+var onOff = document.querySelector('input[name=checkbox_ad]');
+var blockingMessage = document.querySelector('input[name=checkbox_ad_msg]');
+var forcedQuality = document.querySelector('select[name=dropdown_forced_quality]');
+var proxy = document.querySelector('select[name=dropdown_proxy]');
+var proxyQuality = document.querySelector('select[name=dropdown_proxy_quality]');
 
-blockingMessage.addEventListener('change', function() {
-    saveOptions();
-});
+var allSettingsElements = [onOff,blockingMessage,forcedQuality,proxy,proxyQuality];
 
-function saveOptions() {
-    if (document.querySelector("input[name=checkbox1]").checked) {
-        chrome.storage.local.set({
-            onOffTTV: "true"
-        }, function() {});
-    } else {
-        chrome.storage.local.set({
-            onOffTTV: "false"
-        }, function() {});
-    }
-    if (document.querySelector("input[name=checkbox2]").checked) {
-        chrome.storage.local.set({
-            blockingMessageTTV: "true"
-        }, function() {});
-    } else {
-        chrome.storage.local.set({
-            blockingMessageTTV: "false"
-        }, function() {});
+for (var i = 0; i < allSettingsElements.length; i++) {
+    if (allSettingsElements[i]) {
+        allSettingsElements[i].addEventListener('change', function() {
+            saveOptions();
+        });
     }
 }
 
+function saveOptions() {
+    chrome.storage.local.set({onOffTTV: onOff.checked ? 'true' : 'false'});
+    chrome.storage.local.set({blockingMessageTTV: blockingMessage.checked ? 'true' : 'false'});
+    //chrome.storage.local.set({forcedQualityTTV: forcedQuality.options[forcedQuality.selectedIndex].text});
+    chrome.storage.local.set({proxyTTV: proxy.options[proxy.selectedIndex].text});
+    chrome.storage.local.set({proxyQualityTTV: proxyQuality.options[proxyQuality.selectedIndex].text});
+}
+
 function restoreOptions() {
-    chrome.storage.local.get(['onOffTTV'], function(result) {
-        if (result.onOffTTV == "true") {
-            document.querySelector("input[name=checkbox1]").checked = true;
-        } else if (result.onOffTTV == "false") {
-            document.querySelector("input[name=checkbox1]").checked = false;
+    restoreToggle('onOffTTV', onOff);
+    restoreToggle('blockingMessageTTV', blockingMessage);
+    //restoreDropdown('forcedQualityTTV', forcedQuality);
+    restoreDropdown('proxyTTV', proxy);
+    restoreDropdown('proxyQualityTTV', proxyQuality);
+}
+
+function restoreToggle(name, toggle) {
+    chrome.storage.local.get([name], function(result) {
+        if (result[name]) {
+            toggle.checked = result[name] == 'true';
         }
     });
+}
 
-    chrome.storage.local.get(['blockingMessageTTV'], function(result) {
-        if (result.blockingMessageTTV == "true") {
-            document.querySelector("input[name=checkbox2]").checked = true;
-        } else if (result.blockingMessageTTV == "false") {
-            document.querySelector("input[name=checkbox2]").checked = false;
+function restoreDropdown(name, dropdown) {
+    chrome.storage.local.get([name], function(result) {
+        if (result[name]) {
+            var items = Array.from(dropdown.options).filter(item => item.text == result[name]);
+            if (items.length == 1) {
+                dropdown.selectedIndex = items[0].index;
+            }
         }
     });
 }
