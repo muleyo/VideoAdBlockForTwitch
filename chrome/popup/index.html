@@ -83,6 +83,20 @@
             .slider.round:before {
                 border-radius: 50%;
             }
+            .dropdown {
+                float: right;
+                position: relative;
+                display: inline-block;
+                width: 130px;
+                height: 20px;
+                border-radius: 40px;
+                background-color: #805ac5;
+                font-family: Arial, sans-serif;
+                font-size: 14px;
+                /*font-weight: bold;*/
+                color: #fff;
+                border: 0px;
+            }
         </style>
     </head>
     <body>
@@ -91,16 +105,48 @@
             <p class="p2">
                 Twitch Adblocker Off / On
                 <label class="switch">
-                    <input type="checkbox" name="checkbox1" checked />
+                    <input type="checkbox" name="checkbox_ad" checked />
                     <span class="slider round"></span>
                 </label>
             </p>
             <p class="p2">
                 "Blocking Ads" message Off / On
                 <label class="switch">
-                    <input type="checkbox" name="checkbox2" checked />
+                    <input type="checkbox" name="checkbox_ad_msg" checked />
                     <span class="slider round"></span>
                 </label>
+            </p>
+            <!--<p class="p2">
+                Forced quality
+                <select class="dropdown" name="dropdown_forced_quality">
+                    <option>None</option>
+                    <option>Auto</option>
+                    <option>1080p</option>
+                    <option>720p</option>
+                    <option>480p</option>
+                    <option>360p</option>
+                    <option>160p</option>
+                </select>
+            </p>-->
+            <p class="p2">
+                Proxy
+                <select class="dropdown" name="dropdown_proxy">
+                    <option>None</option>
+                    <option>TTV LOL</option>
+                    <!--<option>Purple Adblock</option>-->
+                    <option>Falan</option>
+                </select>
+            </p>
+            <p class="p2">
+                Proxy quality
+                <select class="dropdown" name="dropdown_proxy_quality">
+                    <option>None</option>
+                    <option>1080p</option>
+                    <option>720p</option>
+                    <option>480p</option>
+                    <option>360p</option>
+                    <option>160p</option>
+                </select>
             </p>
             <p class="p2">Whenever you change a setting, you have to reload the Twitch tab(s).</p>
             <p class="p2" style="text-align: center;">
