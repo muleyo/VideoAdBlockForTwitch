@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/32986026/161113263-7da29b0f-64cd-4759-ab71-eaf20b023d73.png" alt"Banner">
+    <img src="https://user-images.githubusercontent.com/32986026/187115653-7673854b-76bc-44cf-86d3-6fc3a0ec99f4.png" alt"Banner">
 </p>
 
 # Twitch Adblock
