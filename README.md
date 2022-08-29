@@ -42,6 +42,8 @@ The original author of this extension is "saucettv". This extension will always 
     - `fixed "Show/Hide 'Blocking Ads'-message logic`
 - v5.4.0 (Chrome) / v5.4.1 (Firefox)
     - `applied fix for the 360p quality issue` (thanks [@pixeltris](https://github.com/pixeltris))
+- v5.5.0
+    - `Added proxies/embeds in order to fight the purple screen "Commercial break"` (thanks to [@pixeltris](https://github.com/pixeltris))
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
