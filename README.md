@@ -1,5 +1,5 @@
 <p align="center">
-    ![store-banner](https://user-images.githubusercontent.com/32986026/197740236-78fe908c-4fd1-4721-82f8-7e66ffdef2d1.png)
+    <img src="https://user-images.githubusercontent.com/32986026/197740236-78fe908c-4fd1-4721-82f8-7e66ffdef2d1.png" alt="Banner">
 </p>
 
 # Twitch Adblock
