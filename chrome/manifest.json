@@ -1,38 +1,38 @@
 {
-  "description": "Blocks Ads on Twitch.tv.",
-  "manifest_version": 3,
-  "name": "Twitch Adblock",
-  "version": "5.5.0",
-  "icons": {
-    "48": "icons/twitch-adblock-48x48.png",
-    "96": "icons/twitch-adblock-96x96.png"
-  },
-  "action": {
-    "default_icon": "icons/twitch-adblock-32x32.png",
-    "default_title": "Twitch Adblock",
-    "default_popup": "popup/index.html"
-  },
-  "options_ui": {
-    "page": "popup/index.html"
-  },
-  "permissions": ["declarativeNetRequest", "storage"],
-  "declarative_net_request": {
-    "rule_resources": [{
-      "id": "ruleset_1",
-      "enabled": true,
-      "path": "block_rules.json"
+    "description": "Blocks Ads on Twitch.tv.",
+    "manifest_version": 3,
+    "name": "Twitch Adblock",
+    "version": "5.6.0",
+    "icons": {
+        "48": "icons/twitch-adblock-48x48.png",
+        "96": "icons/twitch-adblock-96x96.png"
+    },
+    "action": {
+        "default_icon": "icons/twitch-adblock-32x32.png",
+        "default_title": "Twitch Adblock",
+        "default_popup": "popup/index.html"
+    },
+    "options_ui": {
+        "page": "popup/index.html"
+    },
+    "permissions": ["declarativeNetRequest", "storage"],
+    "declarative_net_request": {
+        "rule_resources": [{
+            "id": "ruleset_1",
+            "enabled": true,
+            "path": "block_rules.json"
+        }]
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": ["https://*.twitch.tv/*"],
+        "run_at": "document_start",
+        "js": ["content.js"]
+    }],
+    "web_accessible_resources": [{
+        "resources": ["remove_video_ads.js"],
+        "matches": ["https://*.twitch.tv/*"]
     }]
-  },
-  "background": {
-    "service_worker": "background.js"
-  },
-  "content_scripts": [{
-    "matches": ["https://*.twitch.tv/*"],
-    "run_at": "document_start",
-    "js": ["content.js"]
-  }],
-  "web_accessible_resources": [{
-    "resources": ["remove_video_ads.js"],
-    "matches": ["https://*.twitch.tv/*"]
-  }]
 }
