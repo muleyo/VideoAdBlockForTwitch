@@ -1,0 +1,28 @@
+{
+    "extDescription": {
+      "message": "Bloque les publicités de Twitch.tv.",
+      "description": "La description de l'extension."
+    },
+    "toggleAdblocker": {
+        "message": "Bloquer les publicités Off / On"
+    },
+    "toggleBlockingAds": {
+        "message": "Message de \"Blocage des publicités\" Off / On",
+        "description": "Active/désactive le message de 'Blocage des publicités...'"
+    },
+    "reloadTabsWarning": {
+        "message": "Chaque fois que vous modifiez un paramètre, vous devez recharger le(s) onglet(s) Twitch."
+    },
+    "popupReminder": {
+        "message": "Vous pouvez accéder à ces paramètres à tout moment en cliquant sur l'icône d'extension"
+    },
+    "installThanks": {
+        "message": "Merci d'avoir installé Twitch Adblock !"
+    },
+    "disableOtherAdblockers": {
+        "message": "Afin d'assurer une fonctionnalité complète, veillez à désactiver tout autre bloqueur de publicité pour Twitch."
+    },
+    "blockingAds":{
+        "message": "Blocage des publicités..."
+    }
+}
