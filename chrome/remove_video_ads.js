@@ -284,7 +284,6 @@ window.Worker = class Worker extends oldWorker {
                     adBlockDiv.className = 'adblock-overlay';
                     adBlockDiv.innerHTML = '<div class="player-adblock-notice" style="color: white; background-color: rgba(0, 0, 0, 0.8); position: absolute; top: 0px; left: 0px; padding: 5px;"><p></p></div>';
                     adBlockDiv.style.display = 'none';
-                    //start time of the ad
                     adBlockDiv.P = adBlockDiv.querySelector('p');
                     playerRootDiv.appendChild(adBlockDiv);
                 }

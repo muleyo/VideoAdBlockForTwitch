@@ -60,6 +60,7 @@ function restoreDropdown(name, dropdown) {
 function restoreAdtime(name, container) {
     chrome.storage.local.get([name], function(result) {
         if (result[name]) {
+            // only display hours / minutes if needed
             const hours = Math.trunc(result[name] / 3600);
             const minutes = Math.trunc((result[name] - hours * 3600) / 60);
             container.innerText = `${hours>0 ? hours+"h " : ""}${minutes>0 ? minutes+"min " : ""}${result[name] % 60}s`;
