@@ -9,6 +9,7 @@ var blockingMessage = document.querySelector('input[name=checkbox_ad_msg]');
 var forcedQuality = document.querySelector('select[name=dropdown_forced_quality]');
 var proxy = document.querySelector('select[name=dropdown_proxy]');
 var proxyQuality = document.querySelector('select[name=dropdown_proxy_quality]');
+var adTime = document.querySelector('#ad_time');
 
 var allSettingsElements = [onOff,blockingMessage,forcedQuality,proxy,proxyQuality];
 
@@ -34,6 +35,7 @@ function restoreOptions() {
     //restoreDropdown('forcedQualityTTV', forcedQuality);
     restoreDropdown('proxyTTV', proxy);
     restoreDropdown('proxyQualityTTV', proxyQuality);
+    restoreAdtime('adTimeTTV', adTime);
 }
 
 function restoreToggle(name, toggle) {
@@ -51,6 +53,17 @@ function restoreDropdown(name, dropdown) {
             if (items.length == 1) {
                 dropdown.selectedIndex = items[0].index;
             }
+        }
+    });
+}
+
+function restoreAdtime(name, container) {
+    chrome.storage.local.get([name], function(result) {
+        if (result[name]) {
+            // only display hours / minutes if needed
+            const hours = Math.trunc(result[name] / 3600);
+            const minutes = Math.trunc((result[name] - hours * 3600) / 60);
+            container.innerText = `${hours>0 ? hours+"h " : ""}${minutes>0 ? minutes+"min " : ""}${result[name] % 60}s`;
         }
     });
 }

@@ -5,12 +5,13 @@ const browser = isFirefox ? window.browser : window.chrome;
 
 // Get extension settings
 function updateSettings() {
-    browser.storage.local.get(['blockingMessageTTV','forcedQualityTTV','proxyTTV','proxyQualityTTV']).then(result => {
+    browser.storage.local.get(['blockingMessageTTV','forcedQualityTTV','proxyTTV','proxyQualityTTV', 'adTimeTTV']).then(result => {
         var settings = {
             BannerVisible: true,
             ForcedQuality: null,
             ProxyType: null,
             ProxyQuality: null,
+            AdTime: 0
         };
         if (result.blockingMessageTTV === 'true' || result.blockingMessageTTV === 'false') {
             settings.BannerVisible = result.blockingMessageTTV === 'true';
@@ -24,12 +25,22 @@ function updateSettings() {
         if (result.proxyQualityTTV) {
             settings.ProxyQuality = result.proxyQualityTTV;
         }
+        if (result.adTimeTTV) {
+            settings.AdTime = result.adTimeTTV;
+        }
         postMessage({
             type: 'SetTwitchAdblockSettings',
             settings: settings,
         }, '*');
     });
 }
+
+window.addEventListener('message', (event) => {
+    if (event.data.type && event.data.type == 'SetTwitchAdTime') {
+        browser.storage.local.set({adTimeTTV: event.data.adtime});
+        console.log("Set ad time to " + event.data.adtime);
+    }
+});
 
 function appendBlockingScript() {
     const script = document.createElement('script');

@@ -81,6 +81,7 @@ var TwitchAdblockSettings = {
     ForcedQuality: null,
     ProxyType: null,
     ProxyQuality: null,
+    AdTime: 0
 };
 
 var twitchMainWorker = null;
@@ -142,11 +143,38 @@ window.Worker = class Worker extends oldWorker {
                 }
                 adBlockDiv.P.textContent = 'Blocking ads...';
                 adBlockDiv.style.display = 'block';
+
+                //setting data-start-time as starting time of ad blocking
+                let startTime = adBlockDiv.getAttribute('data-start-time');
+                if (!startTime || startTime == 'null') {
+                    adBlockDiv.setAttribute('data-start-time', new Date().toISOString());
+                }
             } else if (e.data.key == 'HideAdBlockBanner') {
                 if (adBlockDiv == null) {
                     adBlockDiv = getAdBlockDiv();
                 }
                 adBlockDiv.style.display = 'none';
+
+                // calculate duration of last ads
+                let startTime = adBlockDiv.getAttribute('data-start-time');
+                if (startTime) {
+                    startTime = new Date(startTime);
+                    let duration = Math.round((new Date() - startTime) / 1000);
+                    
+                    if (isNaN(duration) || duration < 1) {
+                        console.log(`Duration (${duration}) is invalid, not saving time.`);
+                        return;
+                    }
+                    TwitchAdblockSettings.AdTime += duration;
+                    // post message to content.js to save adtime in local storage
+                    postMessage({
+                        type: 'SetTwitchAdTime',
+                        adtime: TwitchAdblockSettings.AdTime
+                    }, '*');
+
+                    adBlockDiv.setAttribute('data-start-time', null);
+                }
+                
             } else if (e.data.key == 'PauseResumePlayer') {
                 doTwitchPlayerTask(true, false, false, false, false);
             } else if (e.data.key == 'ForceChangeQuality') {
