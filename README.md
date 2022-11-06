@@ -47,7 +47,7 @@ The original author of this extension is "saucettv". This extension will always 
 - v5.5.0
     - `Updated Logos etc.`)
 - v5.7.0
-    - `Added Adblock-Timer` (thanks to [@GODrums](https://github.com/GODrums)
+    - `Added Adblock-Timer` (thanks to [@GODrums](https://github.com/GODrums))
 
 # Credits
 - [@saucettv](https://github.com/saucettv) (original Author)
