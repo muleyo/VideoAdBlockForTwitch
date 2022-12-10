@@ -313,7 +313,6 @@ function hookWorkerFetch() {
 
                         var responseText = await response.text();
                         var weaverText = null;
-                        console.log(TwitchAdblockSettings);
 
                         weaverText = await processM3U8(url, responseText, realFetch, PlayerType2, TwitchAdblockSettings.ExcludedChannels);
                         if (weaverText.includes(AdSignifier)) {
