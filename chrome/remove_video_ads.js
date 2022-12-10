@@ -81,7 +81,8 @@ var TwitchAdblockSettings = {
     ForcedQuality: null,
     ProxyType: null,
     ProxyQuality: null,
-    AdTime: 0
+    AdTime: 0,
+    ExcludedChannels: []
 };
 
 var twitchMainWorker = null;
@@ -312,13 +313,14 @@ function hookWorkerFetch() {
 
                         var responseText = await response.text();
                         var weaverText = null;
+                        console.log(TwitchAdblockSettings);
 
-                        weaverText = await processM3U8(url, responseText, realFetch, PlayerType2);
+                        weaverText = await processM3U8(url, responseText, realFetch, PlayerType2, TwitchAdblockSettings.ExcludedChannels);
                         if (weaverText.includes(AdSignifier)) {
-                            weaverText = await processM3U8(url, responseText, realFetch, PlayerType3);
+                            weaverText = await processM3U8(url, responseText, realFetch, PlayerType3, TwitchAdblockSettings.ExcludedChannels);
                         }
                         if (weaverText.includes(AdSignifier)) {
-                            weaverText = await processM3U8(url, responseText, realFetch, PlayerType4);
+                            weaverText = await processM3U8(url, responseText, realFetch, PlayerType4, TwitchAdblockSettings.ExcludedChannels);
                         }
 
                         resolve(new Response(weaverText));
@@ -497,7 +499,7 @@ function stripUnusedParams(str, params) {
     return tempUrl.pathname.substring(1) + tempUrl.search;
 }
 
-async function processM3U8(url, textStr, realFetch, playerType) {
+async function processM3U8(url, textStr, realFetch, playerType, excludedChannels) {
     //Checks the m3u8 for ads and if it finds one, instead returns an ad-free stream.
 
     var streamInfo = StreamInfosByUrl[url];
@@ -508,6 +510,11 @@ async function processM3U8(url, textStr, realFetch, playerType) {
     }
 
     if (!textStr) {
+        return textStr;
+    }
+    
+    // Channel is excluded by user: ads are visible.
+    if (excludedChannels.includes(streamInfo.ChannelName)) {
         return textStr;
     }
 
