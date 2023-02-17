@@ -91,7 +91,7 @@ function removeVideoAds() {
         //scope.PlayerType1 = 'site'; //Source - NOTE: This is unused as it's implicitly used by the website iself
         scope.PlayerType2 = 'embed'; //Source
         scope.PlayerType3 = 'proxy'; //Source
-        scope.PlayerType4 = 'thunderdome'; //480p
+        scope.PlayerType4 = 'autoplay'; //360p
         scope.CurrentChannelName = null;
         scope.UsherParams = null;
         scope.WasShowingAd = false;
@@ -196,8 +196,8 @@ function removeVideoAds() {
                         if (OriginalVideoPlayerQuality == null) {
                             OriginalVideoPlayerQuality = currentQuality;
                         }
-                        if (!currentQuality.includes('480') || e.data.value != null) {
-                            if (!OriginalVideoPlayerQuality.includes('480')) {
+                        if (!currentQuality.includes('360') || e.data.value != null) {
+                            if (!OriginalVideoPlayerQuality.includes('360')) {
                                 var settingsMenu = document.querySelector('div[data-a-target="player-settings-menu"]');
                                 if (settingsMenu == null) {
                                     var settingsCog = document.querySelector('button[data-a-target="player-settings-button"]');
@@ -209,7 +209,7 @@ function removeVideoAds() {
                                         }
                                         var lowQuality = document.querySelectorAll('input[data-a-target="tw-radio"');
                                         if (lowQuality) {
-                                            var qualityToSelect = lowQuality.length - 3;
+                                            var qualityToSelect = lowQuality.length - 2;
                                             if (e.data.value != null) {
                                                 if (e.data.value.includes('original')) {
                                                     e.data.value = OriginalVideoPlayerQuality;
@@ -257,6 +257,7 @@ function removeVideoAds() {
                                             var currentQualityLS = window.localStorage.getItem('video-quality');
                                             
                                             lowQuality[qualityToSelect].click();
+                                            settingsCog.click();
                                             window.localStorage.setItem('video-quality', currentQualityLS);
 
                                             if (e.data.value != null) {
@@ -707,7 +708,7 @@ function removeVideoAds() {
 
     function getAccessToken(channelName, playerType, realFetch) {
         var body = null;
-        var templateQuery = 'query PlaybackAccessToken_Template($login: String!, $isLive: Boolean!, $vodID: ID!, $isVod: Boolean!, $playerType: String!) {  streamPlaybackAccessToken(channelName: $login, params: {platform: "web", playerBackend: "mediaplayer", playerType: $playerType}) @include(if: $isLive) {    value    signature    __typename  }  videoPlaybackAccessToken(id: $vodID, params: {platform: "web", playerBackend: "mediaplayer", playerType: $playerType}) @include(if: $isVod) {    value    signature    __typename  }}';
+        var templateQuery = 'query PlaybackAccessToken_Template($login: String!, $isLive: Boolean!, $vodID: ID!, $isVod: Boolean!, $playerType: String!) {  streamPlaybackAccessToken(channelName: $login, params: {platform: "ios", playerBackend: "mediaplayer", playerType: $playerType}) @include(if: $isLive) {    value    signature    __typename  }  videoPlaybackAccessToken(id: $vodID, params: {platform: "ios", playerBackend: "mediaplayer", playerType: $playerType}) @include(if: $isVod) {    value    signature    __typename  }}';
         body = {
             operationName: 'PlaybackAccessToken_Template',
             query: templateQuery,
